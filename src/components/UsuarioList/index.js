@@ -1,19 +1,34 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import * as Animatable from 'react-native-animatable';
 
-export default function UsuarioList({data}) {
+const BotaoAnimado = Animatable.createAnimatableComponent(TouchableOpacity)
+
+export default function UsuarioList({ data }) {
   return (
-    <View style={estilos.container}>
-      <TouchableOpacity>
+    //Animatable.View = criando uma janela animada , 
+    <Animatable.View
+      animation="bounceIn"   // tipo de animação
+      useNativeDriver        // Drive que precisa utilizar com  Animatable
+
+      style={estilos.container} // estilo da janela
+      > 
+
+      <BotaoAnimado
+        animation="bounceIn"   // tipo de animação
+        useNativeDriver        // Drive que precisa utilizar com  Animatable
+        duration={500} //A duração da animação
+      >
+        
         <Ionicons name='md-checkmark-circle' size={35} color='#121212' // cria um icone com um tamanho e cor 
         />
-      </TouchableOpacity>
+      </BotaoAnimado>
 
       <View>
         <Text style={estilos.texto}>{data.key} - {data.usuario}</Text>
       </View>
-    </View> // fim da View container
+    </Animatable.View> // fim da View container
   )
 
 
@@ -27,7 +42,7 @@ const estilos = StyleSheet.create({
     flexDirection: 'row', // alinha o itens em linha
     padding: 7, //
     margin: 7, //
-    borderRadius:7,
+    borderRadius: 7,
     elevation: 5,  // intencidade da sombra
     shadowColor: 'red', // cor da sombra
     shadowOpacity: 0.2, // Nivel de opacidade da sombra
@@ -37,7 +52,7 @@ const estilos = StyleSheet.create({
   },
   texto: {
     padding: 6, //
-    paddingLeft:1,
+    paddingLeft: 1,
     margin: 6, //
   },
 

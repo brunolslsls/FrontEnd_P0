@@ -3,6 +3,10 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import UsuarioList from './src/components/UsuarioList'; // importando uma classe
+import * as Animatable from 'react-native-animatable';
+
+const BotaoAnimado = Animatable.createAnimatableComponent(TouchableOpacity)
+
 
 export default function App() {
   const [usuario, setUsuario] = useState([ // Temos um Objeto Usuario 
@@ -25,23 +29,27 @@ export default function App() {
         <Text style={estilos.titulo}>Lista de Usuarios</Text>
       </View>
 
-  
+
       <FlatList /*FlatList é um elemento que pode criar lista de alguma coisa */
         marginHorizontal={20} // adiciona uma margem na horizontal para cada item
         showsHorizontalScrollIndicator={false} // barra de rolagem não aparece
         data={usuario} // são as dados que vai a lista
-        keyExtractor={(item) => String(item.key) } // chave primaria, coluna indentificação é objeto com nome "key"
-        renderItem={({item}) => < UsuarioList data={item}/>} // Data recebe o objetos criandos
-    ></FlatList>
+        keyExtractor={(item) => String(item.key)} // chave primaria, coluna indentificação é objeto com nome "key"
+        renderItem={({ item }) => < UsuarioList data={item} />} // Data recebe o objetos criandos
+      ></FlatList>
 
-      <TouchableOpacity
+      <BotaoAnimado
+        animation="bounceInUp"   // tipo de animação
+        useNativeDriver        // Drive que precisa utilizar com  Animatable
+        duration={1000} //A duração da animação
+
         style={estilos.botao} // Defina um estilo para o botão
         onPress={calcular}  // chama uma função apois de precionar esse botão
       >
         <Ionicons ns name='ios-add' size={35} color='white' // cria um icone com um tamanho e cor 
         />
-      </TouchableOpacity>
-      
+      </BotaoAnimado>
+
     </SafeAreaView>
   );
 }
