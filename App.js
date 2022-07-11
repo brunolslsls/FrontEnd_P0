@@ -55,6 +55,7 @@ export default function App() {
             <Text style={estilos.textoModal}>Janela Modal Teste</Text>
           </View>
 
+          
 
         </SafeAreaView>
 
