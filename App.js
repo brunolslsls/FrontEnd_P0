@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import UsuarioList from './src/components/UsuarioList'; // importando uma classe
+import { UsuarioList} from './src/components/UsuarioList'; // importando uma classe
 import * as Animatable from 'react-native-animatable';
 import { Modal } from 'react-native';
 
