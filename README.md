@@ -87,6 +87,11 @@ A aplicação consiste em adicionar e listar os dados em um dispositivo mobile
 
 </Modal>
 ```
+- Ionicons: responsavel de colocar icones
+```
+ <Ionicons name="md-person" size={23} color="#121212"></Ionicons>
+```
+
 
 # Autor
 
