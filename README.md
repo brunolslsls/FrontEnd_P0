@@ -6,6 +6,13 @@ Esse é o primeiro projeto que eu construir utilizando react native
 A aplicação consiste em adiccionar e listar os dados em um dispositivo mobile
 
 ## Layout mobile
+  
+  <div style="display: inline-block;">
+  <img  alt="Bruno-Java"  width="320" src="https://user-images.githubusercontent.com/107335359/178506133-6fdf0ab8-ca98-49b3-b695-86b1123a4641.png">
+  ---
+  <img  alt="Bruno-Java"  width="320" src="https://user-images.githubusercontent.com/107335359/178506133-6fdf0ab8-ca98-49b3-b695-86b1123a4641.png">
+  </div>
+
 ![Mobile 1](https://github.com/acenelio/assets/raw/main/sds1/mobile1.png) ![Mobile 2](https://github.com/acenelio/assets/raw/main/sds1/mobile2.png)
 
 ## Layout web
