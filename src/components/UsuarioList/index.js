@@ -3,36 +3,35 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView, Flat
 import { Ionicons } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
 
-const BotaoAnimado = Animatable.createAnimatableComponent(TouchableOpacity)
+const BotaoAnimado = Animatable.createAnimatableComponent(TouchableOpacity);
 
 export default function UsuarioList({ data }) {
   return (
-    //Animatable.View = criando uma janela animada , 
     <Animatable.View
       animation="bounceIn"   // tipo de animação
       useNativeDriver        // Drive que precisa utilizar com  Animatable
-
       style={estilos.container} // estilo da janela
-      > 
+    >
 
       <BotaoAnimado
         animation="bounceIn"   // tipo de animação
         useNativeDriver        // Drive que precisa utilizar com  Animatable
-        duration={500} //A duração da animação
+        duration={500}         //A duração da animação
       >
-        
-        <Ionicons name='md-checkmark-circle' size={35} color='#121212' // cria um icone com um tamanho e cor 
-        />
+        <Ionicons name="md-person" size={23} color="#121212"></Ionicons> {/* adiciona icone */ }  
+
       </BotaoAnimado>
 
+
       <View>
-        <Text style={estilos.texto}>{data.key} - {data.usuario}</Text>
+        <Text style={estilos.texto}>{data.nome} - {data.telefone}</Text>  {/* adiciona texto */ }  
       </View>
-    </Animatable.View> // fim da View container
+
+    </Animatable.View>
+
   )
-
-
 }
+
 
 const estilos = StyleSheet.create({
   container: {
@@ -55,7 +54,6 @@ const estilos = StyleSheet.create({
     paddingLeft: 1,
     margin: 6, //
   },
-
 
 
 });

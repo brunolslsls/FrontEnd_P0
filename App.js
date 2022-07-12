@@ -1,29 +1,46 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Modal, TextInput, TouchableOpacity, SafeAreaView, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { UsuarioList} from './src/components/UsuarioList'; // importando uma classe
+import UsuarioList from './src/components/UsuarioList';
 import * as Animatable from 'react-native-animatable';
-import { Modal } from 'react-native';
 
-const BotaoAnimado = Animatable.createAnimatableComponent(TouchableOpacity)
+const BotaoAnimado = Animatable.createAnimatableComponent(TouchableOpacity);
+
 
 
 export default function App() {
-  const [usuario, setUsuario] = useState([ // Temos um Objeto Usuario 
-    { key: 1, usuario: 'Jane' },
-    { key: 2, usuario: 'maria' },
-    { key: 3, usuario: 'Alexander' },
-    { key: 4, usuario: 'Alexandra' },
+  const [usuario, setUsuario] = useState([]); // cria objetos
+  const [abrir, setAbrir] = useState(false);  // cria boleanos
+  const [nome, setNome] = useState('');      // cria Strings
+  const [telefone, setTelefone] = useState('');  // cria Strings
 
-  ]);
 
-  const [abrir, setAbrir] = useState(false);
+   
+  function add() {
+    if (nome === '') {   // verifica se nome esta vazio
+      alert('O nome não pode ficar vazio')
+      return;
+    }
+
+    if (telefone === '') {  // verifica se telefone esta vazio
+      return;
+    }
+
+    const data = { nome: nome, telefone: telefone }  // cria um objeto que tem chave (nome e telefone) 
+
+    setUsuario([...usuario, data]);     // temos duas chave 1- pega toda as chaves que tem dentro da variavel usuario e adiciona no setUsuario  2- alem das chaves da variavel usuario adiciona as chaves de data
+    setAbrir(false);   //reinicia a setAbrir como falso        
+    setNome('');       // reinicia nome para vazio
+    setTelefone('');  // reinicia telefone para vazio
+
+  }
 
 
   return (
     {/* style={estilos.container} isso como fosse style='background-color: red' */ },
     {/* linha de baixo vai jogar o estilo do 'container' para 'View'  */ },
+
     <SafeAreaView style={estilos.container}>
       <StatusBar backgroundColor='#171d31' barStyle='light-content' />
       <View>
@@ -32,7 +49,7 @@ export default function App() {
 
 
 
-      <FlatList /*FlatList é um elemento que pode criar lista de alguma coisa */
+      <FlatList /*FlatList é um elemento que pode criar lista de blocos de alguma coisa */
         marginHorizontal={20} // adiciona uma margem na horizontal para cada item
         showsHorizontalScrollIndicator={false} // barra de rolagem não aparece
         data={usuario} // são as dados que vai a lista
@@ -54,14 +71,36 @@ export default function App() {
             </TouchableOpacity>
             <Text style={estilos.textoModal}>Janela Modal Teste</Text>
           </View>
-
           
+          <Animatable.View
+            animation="bounceInUp" 
+            useNativeDriver  >
+
+            <TextInput
+              style={estilos.input}    // é estilo da caixa de texto
+              placeholder="Insira um Nome" // é texto inicial da caixa de texto
+              value={nome}  // Passa uma string para poder preencher a caixa
+              onChangeText={(nome) => setNome(nome)} // atualiza o valor da caixa 
+            />
+
+            <TextInput
+              style={estilos.input}   // é estilo da caixa de texto
+              placeholder="Insira um Telefone"  // é texto inicial da caixa de texto
+              value={telefone} // Passa uma string para poder preencher a caixa
+              onChangeText={(telefone) => setTelefone(telefone)} // atualiza o valor da caixa 
+            />
+
+            <TouchableOpacity
+              style={estilos.botaoModal} // estilo do botão
+              onPress={add}   // qunado o botão é precionado então ele chama essa função 
+            >
+              <Text style={estilos.textoBotaoModal}>Salvar</Text>
+            </TouchableOpacity>
+          </Animatable.View>
 
         </SafeAreaView>
 
       </Modal>
-
-
 
       <BotaoAnimado
         animation="bounceInUp"   // tipo de animação
@@ -74,7 +113,6 @@ export default function App() {
         <Ionicons name='ios-add' size={35} color='white' // cria um icone com um tamanho e cor 
         />
       </BotaoAnimado>
-
     </SafeAreaView>
   );
 }
@@ -113,31 +151,58 @@ const estilos = StyleSheet.create({
     shadowOffset: { width: 1, height: 3 }, // posicao da sombra
   },
   textoBotao: {
-    fontSize: 18,
-    color: 'white',
+    fontSize: 18,   // tamanho do texto
+    color: 'white',  // cor do texto
 
 
   },
 
   modal: {
     flex: 1,      // Tamanho do item 
-    backgroundColor: '#111',
+    backgroundColor: '#111', // cor de fundo 
 
   },
   textoModal: {
-    color: '#767474',
-    marginTop: 5,
-    marginLeft: 10,
-    fontSize: 20,
+    color: '#767474', // cor do texto
+    marginTop: 5,     // aumanta a margem em Cima
+    marginLeft: 10,   // aumenta a margem da esquerda
+    fontSize: 20,    // tamanho do texto
 
   },
 
   modalHeader: {
-
-    marginLeft: 10,
-    marginTop: 20,
-    flexDirection: 'row',
+    marginLeft: 10, // aumenta a margem da esquerda
+    marginTop: 20,   // aumanta a margem em Cima
+    flexDirection: 'row',  // alinha os itens em linha
   },
 
+
+
+  input: {
+    backgroundColor: '#FFF',
+    borderRadius: 5,
+    margin: 8,
+    padding: 8,
+    color: '#000',
+    fontSize: 13
+  },
+  botaoModal: {
+    backgroundColor: '#00335c',
+    borderRadius: 5,
+    margin: 5,
+    padding: 12,
+    color: '#FFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+  },
+  textoBotaoModal: {
+    fontSize: 16,
+    color: '#FFF',
+
+  },
+  nav: {
+    backgroundColor: '#021d33',
+  }
 
 });
