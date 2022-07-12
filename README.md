@@ -61,9 +61,9 @@ A aplicação consiste em adicionar e listar os dados em um dispositivo mobile
 </TouchableOpacity>
 ```
 
-- Animatable.View      
+- Animatable.View    
 ```
-<Animatable.View
+<Animatable.View           // 
   animation="bounceInUp"   // tipo de animação
   useNativeDriver        // Drive que precisa utilizar com  Animatable
   duration={1000}        //A duração da animação
@@ -73,12 +73,16 @@ A aplicação consiste em adicionar e listar os dados em um dispositivo mobile
 
 ```
 
-- Modal     
+- Modal  
+  - animationType : O animationTypeprop controla como o modal é animado
+  - slide: desliza a partir do fundo,
+  - fade: desaparece à vista,
+  - none: aparece sem uma animação.       
 ```
 <Modal
   animationType="slide"
-  transparent={false}
-  visible={abrir}
+  transparent={false} // define se o fundo vai ser transparente
+  visible={false}    //  define se vai ser visivel(true) ou oculto(false)
 >
 
 </Modal>
