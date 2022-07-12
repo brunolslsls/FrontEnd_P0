@@ -3,7 +3,7 @@
 
 Esse é o primeiro projeto que eu construir utilizando react native para um FRONT-END
 
-A aplicação consiste em adiccionar e listar os dados em um dispositivo mobile
+A aplicação consiste em adicionar e listar os dados em um dispositivo mobile
 
 ## Layout mobile
   
