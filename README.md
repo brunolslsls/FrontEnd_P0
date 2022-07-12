@@ -9,7 +9,7 @@ A aplicação consiste em adiccionar e listar os dados em um dispositivo mobile
 ![Mobile 1](https://github.com/acenelio/assets/raw/main/sds1/mobile1.png) ![Mobile 2](https://github.com/acenelio/assets/raw/main/sds1/mobile2.png)
 
 ## Layout web
-![Web 1](https://github.com/acenelio/assets/raw/main/sds1/web1.png)
+![ex2 usu](https://user-images.githubusercontent.com/107335359/178506133-6fdf0ab8-ca98-49b3-b695-86b1123a4641.png)
 
 ![Web 2](https://github.com/acenelio/assets/raw/main/sds1/web2.png)
 
