@@ -63,7 +63,7 @@ A aplicação consiste em adicionar e listar os dados em um dispositivo mobile
 
 - Animatable.View    
 ```
-<Animatable.View           // 
+<Animatable.View           // cria uma tela de animação
   animation="bounceInUp"   // tipo de animação
   useNativeDriver        // Drive que precisa utilizar com  Animatable
   duration={1000}        //A duração da animação
