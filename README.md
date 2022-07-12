@@ -20,6 +20,70 @@ A aplicação consiste em adicionar e listar os dados em um dispositivo mobile
 - Expo
 - Android Studio
 
+## Componentes do React
+- StatusBar
+```
+ <StatusBar backgroundColor='#171d31' barStyle='light-content' />
+```
+
+- Text      
+```
+ <Text style={estilos.titulo}>Lista de Usuarios</Text> 
+```
+
+- FlatList      
+``` 
+   <FlatList /*FlatList é um elemento que pode criar lista de blocos de alguma coisa */
+      marginHorizontal={20} // adiciona uma margem na horizontal para cada item
+      showsHorizontalScrollIndicator={false} // barra de rolagem não aparece
+      data={usuario} // são as dados que vai a lista
+      keyExtractor={(item) => String(item.key)} // chave primaria, coluna indentificação é objeto com nome "key"
+      renderItem={({ item }) => < UsuarioList data={item} />} // Data recebe o objetos criandos
+   ></FlatList>```
+```
+- TextInput      
+```
+<TextInput
+  style={estilos.input}    // é estilo da caixa de texto
+  placeholder="Insira um Nome" // é texto inicial da caixa de texto
+  value={nome}  // Passa uma string para poder preencher a caixa
+  onChangeText={(nome) => setNome(nome)} // atualiza o valor da caixa 
+/>
+```
+- TouchableOpacity      
+```
+<TouchableOpacity
+   style={estilos.botao} // Defina um estilo para o botão
+   onPress={() => setAbrir(true)}  // chama uma função apois de precionar esse botão
+   >
+   <Ionicons name='ios-add' size={35} color='white' // cria um icone com um tamanho e cor 
+   />
+</TouchableOpacity>
+```
+
+- Animatable.View      
+```
+<Animatable.View
+  animation="bounceInUp"   // tipo de animação
+  useNativeDriver        // Drive que precisa utilizar com  Animatable
+  duration={1000}        //A duração da animação
+>
+
+</Animatable.View>
+
+```
+
+- Modal     
+```
+<Modal
+  animationType="slide"
+  transparent={false}
+  visible={abrir}
+>
+
+</Modal>
+```
+
 # Autor
 
 Bruno Lopes Soares
